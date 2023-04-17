@@ -41,4 +41,28 @@ function init() {
     });
 }
 
+viewEmployees = () => {
+  connection.query(`SELECT * FROM employee`, (err, rows) => {
+    if (err) throw err;
+    console.table(rows);
+    init();
+  });
+};
+
+viewDepartments = () => {
+  connection.query("SELECT * FROM department", (err, rows) => {
+    if (err) throw err;
+    console.table(rows);
+    init();
+  });
+};
+
+viewRoles = () => {
+  connection.query(`SELECT * FROM role`, (err, rows) => {
+    if (err) throw err;
+    console.table(rows);
+    runApp();
+  });
+};
+
 init();
